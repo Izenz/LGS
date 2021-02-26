@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
         _animator.SetBool("IsWalking", isWalking);
 
         Vector3 desiredForward = Vector3.RotateTowards(transform.forward, movement, 
-            turnSpeed * Time.deltaTime, 0f);
+            turnSpeed * Time.fixedDeltaTime, 0f);
         
         rotation = Quaternion.LookRotation(desiredForward);
     }
