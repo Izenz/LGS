@@ -156,11 +156,11 @@
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.6\Editor\Manipulators\Move\IMoveItemMode.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.6\Editor\treeview\ManipulationsTracks.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.6\Editor\Utilities\DisplayNameHelper.cs" />
-     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.6\Editor\Window\TimelineWindow_PreviewPlayMode.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.6\Editor\Window\Modes\TimelineMode.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.6\Editor\Utilities\AnimatedPropertyUtility.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.6\Editor\Animation\AnimationClipActions.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.6\Editor\TimelineEditor.cs" />
+     <Compile Include="Library\PackageCache\com.unity.timeline@1.4.6\Editor\Window\TimelineWindow_PreviewPlayMode.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.6\Editor\treeview\IRowGUI.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.6\Editor\inspectors\BuiltInCurvePresets.cs" />
      <Compile Include="Library\PackageCache\com.unity.timeline@1.4.6\Editor\Manipulators\AddDelete\AddDeleteItemModeReplace.cs" />
