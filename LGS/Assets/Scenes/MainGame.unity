@@ -379,7 +379,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508944495}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -9.54, y: 4.048427, z: -5.838427}
+  m_LocalPosition: {x: -5.19, y: 4.048427, z: -0.5084273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -587,7 +587,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1035045162}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -9.54, y: 4.048427, z: -5.838427}
+  m_LocalPosition: {x: -5.19, y: 4.048427, z: -0.5084273}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2072184106}
@@ -683,29 +683,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110080366}
   m_CullTransparentMesh: 1
---- !u!1 &1375470901 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6198926230004354685, guid: 42fcf33aa66591b49a2feca9a80b8b7c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2138837806}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1375470905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375470901}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1367cc7aaa2e83b4ab61a024a8de62ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fateDuration: 2
-  displayImageDuration: 1
-  player: {fileID: 2278064990192955245}
-  exitBackgroundImageCanvasGroup: {fileID: 0}
-  caughtBackgroundImageCanvasGroup: {fileID: 1110080368}
 --- !u!1 &1530722385
 GameObject:
   m_ObjectHideFlags: 0
@@ -4584,6 +4561,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1375470905, guid: 42fcf33aa66591b49a2feca9a80b8b7c, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2278064990192955245}
+    - target: {fileID: 1375470905, guid: 42fcf33aa66591b49a2feca9a80b8b7c, type: 3}
+      propertyPath: caughtBackgroundImageCanvasGroup
+      value: 
+      objectReference: {fileID: 1110080368}
     - target: {fileID: 2748942686708522336, guid: 42fcf33aa66591b49a2feca9a80b8b7c,
         type: 3}
       propertyPath: player
@@ -4593,11 +4578,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gargoyle
-      objectReference: {fileID: 0}
-    - target: {fileID: 8687947752738993031, guid: 42fcf33aa66591b49a2feca9a80b8b7c,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 8687947752739352487, guid: 42fcf33aa66591b49a2feca9a80b8b7c,
         type: 3}
@@ -4662,40 +4642,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4306603636777233116}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2278064990192955246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2278064990192955245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6cac7f85b625af4380415571bb674a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnSpeed: 40
-  vc: {fileID: 1035045163}
 --- !u!4 &2278064990192955247 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2619249149080557969, guid: 5b4a520beb4dc134fb645efe42f52688,
     type: 3}
   m_PrefabInstance: {fileID: 4306603636777233116}
   m_PrefabAsset: {fileID: 0}
---- !u!136 &2278064990192955248
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2278064990192955245}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.4
-  m_Height: 1.4
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!1001 &4306603636777233116
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4703,6 +4655,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2278064990192955246, guid: 5b4a520beb4dc134fb645efe42f52688,
+        type: 3}
+      propertyPath: vc
+      value: 
+      objectReference: {fileID: 1035045163}
     - target: {fileID: 2619249149080557969, guid: 5b4a520beb4dc134fb645efe42f52688,
         type: 3}
       propertyPath: m_RootOrder
@@ -4711,7 +4668,7 @@ PrefabInstance:
     - target: {fileID: 2619249149080557969, guid: 5b4a520beb4dc134fb645efe42f52688,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.54
+      value: -5.19
       objectReference: {fileID: 0}
     - target: {fileID: 2619249149080557969, guid: 5b4a520beb4dc134fb645efe42f52688,
         type: 3}
@@ -4721,7 +4678,7 @@ PrefabInstance:
     - target: {fileID: 2619249149080557969, guid: 5b4a520beb4dc134fb645efe42f52688,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.01
+      value: 2.32
       objectReference: {fileID: 0}
     - target: {fileID: 2619249149080557969, guid: 5b4a520beb4dc134fb645efe42f52688,
         type: 3}
@@ -4762,26 +4719,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JohnLemon
-      objectReference: {fileID: 0}
-    - target: {fileID: 2619249149088249465, guid: 5b4a520beb4dc134fb645efe42f52688,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: a4e39a7ff806f874fa70ab767b917bfd, type: 2}
-    - target: {fileID: 2619249149088249465, guid: 5b4a520beb4dc134fb645efe42f52688,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4175164535084247285, guid: 5b4a520beb4dc134fb645efe42f52688,
-        type: 3}
-      propertyPath: m_Constraints
-      value: 84
-      objectReference: {fileID: 0}
-    - target: {fileID: 4175164535084247285, guid: 5b4a520beb4dc134fb645efe42f52688,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b4a520beb4dc134fb645efe42f52688, type: 3}

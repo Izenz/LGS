@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float turnSpeed;
 
+    private bool stop;
+
     private CinemachineFramingTransposer transposer;
     private IEnumerator coroutine;
 
@@ -31,11 +33,12 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
+        if ((Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S)) && stop)
         {
             StopCoroutine(coroutine);
             coroutine = CameraY(transposer.m_ScreenY, 0.5f, 0.3f);
             StartCoroutine(coroutine);
+            stop = false;
         }
     }
 
@@ -46,13 +49,15 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         movement.Set(horizontal, 0, vertical);
 
-        if(vertical == 1)
+        if(vertical == 1 )
         {
+            stop = true;
             coroutine = CameraY(transposer.m_ScreenY, 0.75f, 0.3f);
             StartCoroutine(coroutine);
         }
         else if(vertical == -1)
         {
+            stop = true;
             coroutine = CameraY(transposer.m_ScreenY, 0.25f, 0.3f);
             StartCoroutine(coroutine);
         }

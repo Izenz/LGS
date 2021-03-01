@@ -20,7 +20,7 @@ public class GameEnding : MonoBehaviour
     {
         if(other.gameObject == player)
         {
-            if(this.transform.parent.tag == "Finish")
+            if(this.transform.tag == "Finish")
             {
                 isPlayerAtExit = true;
                 StartCoroutine(Fade(0, 1, fateDuration, exitBackgroundImageCanvasGroup, false));
