@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,12 +14,29 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float turnSpeed;
 
+    private CinemachineFramingTransposer transposer;
+    private IEnumerator coroutine;
+
+    public CinemachineVirtualCamera vc;
+
     private Quaternion rotation = Quaternion.identity;
     // Start is called before the first frame update
     void Start()
     {
         _animator = GetComponent<Animator>();
         _rigidbody = GetComponent<Rigidbody>();
+        
+        transposer = vc.GetCinemachineComponent<CinemachineFramingTransposer>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S))
+        {
+            StopCoroutine(coroutine);
+            coroutine = CameraY(transposer.m_ScreenY, 0.5f, 0.3f);
+            StartCoroutine(coroutine);
+        }
     }
 
     // Update is called once per frame
@@ -27,6 +45,22 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         movement.Set(horizontal, 0, vertical);
+
+        if(vertical == 1)
+        {
+            coroutine = CameraY(transposer.m_ScreenY, 0.75f, 0.3f);
+            StartCoroutine(coroutine);
+        }
+        else if(vertical == -1)
+        {
+            coroutine = CameraY(transposer.m_ScreenY, 0.25f, 0.3f);
+            StartCoroutine(coroutine);
+        }
+
+       
+        // Debug.Log(vc.GetCinemachineComponent<CinemachineFramingTransposer>);
+        //  movement.Set(transform.forward.x, 0, transform.forward.z);
+
         /*
          * Tenemos que normalizar el vector ya que puede ser que las distancias no sean iguales
          * Al pulsar arriba obtenemos el vector (1, 0, 0)
@@ -41,9 +75,13 @@ public class PlayerController : MonoBehaviour
 
         _animator.SetBool("IsWalking", isWalking);
 
-        Vector3 desiredForward = Vector3.RotateTowards(transform.forward, movement, 
+        //Debug.Log(transform.forward);
+
+        /*Vector3 desiredForward = Vector3.RotateTowards(transform.forward, movement, 
+            turnSpeed * Time.fixedDeltaTime, 0f);*/
+        Vector3 desiredForward = Vector3.RotateTowards(transform.forward, movement,
             turnSpeed * Time.fixedDeltaTime, 0f);
-        
+
         rotation = Quaternion.LookRotation(desiredForward);
     }
 
@@ -54,6 +92,19 @@ public class PlayerController : MonoBehaviour
         //s = so + V*t       so + delta S
         _rigidbody.MovePosition(_rigidbody.position + movement * _animator.deltaPosition.magnitude);
         _rigidbody.MoveRotation(rotation);
+    }
+
+    IEnumerator CameraY(float from, float to, float duration)
+    {
+        float startTime = Time.time;
+        while (Time.time - startTime < duration)
+        {
+            transposer.m_ScreenY = Mathf.Lerp(from, to, (Time.time - startTime) / duration);
+            //Debug.Log(transposer.m_ScreenY);
+            yield return 0;
+
+        }
+        yield return 0;
     }
 }
 

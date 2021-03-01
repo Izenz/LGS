@@ -12,6 +12,11 @@ public class Observer : MonoBehaviour
 
     public GameEnding gameEnding;
 
+    private void Start()
+    {
+        gameEnding = GetComponent<GameEnding>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.transform == player)
@@ -38,6 +43,8 @@ public class Observer : MonoBehaviour
             Vector3 direction = player.position - transform.position + Vector3.up;
             Ray ray = new Ray(transform.position, direction);
 
+            Debug.DrawRay(transform.position, direction, Color.green, Time.deltaTime, true);
+
             RaycastHit raycastHit;
             //Si chocamos contra algo
             //out hace que se pase por referencia.
@@ -45,9 +52,17 @@ public class Observer : MonoBehaviour
             {
                 if(raycastHit.collider.transform == player)
                 {
-
+                    gameEnding.CaughtEndGame();
                 }
             }
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(transform.position, 0.1f);
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, player.position + Vector3.up);
     }
 }
