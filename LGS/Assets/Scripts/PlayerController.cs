@@ -33,6 +33,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        /*
+         * Hay que añadir flechas arriba y abajo.
+         */
         if ((Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.S)) && stop)
         {
             StopCoroutine(coroutine);
@@ -48,6 +51,17 @@ public class PlayerController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         movement.Set(horizontal, 0, vertical);
+
+        /*
+         * La magia mágica
+         *Gira demasiado rápido pero... eso se podrá regular.
+         */
+
+       /* Vector3 camForward = vc.transform.forward;
+        Vector3 camRight = vc.transform.right;
+        camForward.y = 0f;
+        camRight.y = 0f;
+        movement = vertical * camForward + horizontal * camRight;*/
 
         if(vertical == 1 )
         {
