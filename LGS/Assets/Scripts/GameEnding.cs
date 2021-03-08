@@ -16,6 +16,9 @@ public class GameEnding : MonoBehaviour
     public CanvasGroup exitBackgroundImageCanvasGroup;
     public CanvasGroup caughtBackgroundImageCanvasGroup;
 
+    public AudioSource exitAudio, caughtAudio;
+    private bool hasAudioPlayed;
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject == player)
@@ -23,7 +26,7 @@ public class GameEnding : MonoBehaviour
             if(this.transform.tag == "Finish")
             {
                 isPlayerAtExit = true;
-                StartCoroutine(Fade(0, 1, fateDuration, exitBackgroundImageCanvasGroup, false));
+                StartCoroutine(Fade(0, 1, fateDuration, exitBackgroundImageCanvasGroup, false, exitAudio));
             }
             
         }
@@ -32,7 +35,7 @@ public class GameEnding : MonoBehaviour
     public void CaughtEndGame()
     {
         isPlayerCaught = true;
-        StartCoroutine(Fade(0, 1, fateDuration, caughtBackgroundImageCanvasGroup, true));
+        StartCoroutine(Fade(0, 1, fateDuration, caughtBackgroundImageCanvasGroup, true, caughtAudio));
     }
 
     /// <summary>
@@ -43,8 +46,15 @@ public class GameEnding : MonoBehaviour
     /// <param name="duration">Cuanto tarda en llegar de from to to</param>
     /// <param name="cg">Imagen de fin de partida correspondiente</param>
     /// <returns></returns>
-    IEnumerator Fade(float from, float to, float duration, CanvasGroup cg, bool doRestart)
+    IEnumerator Fade(float from, float to, float duration, CanvasGroup cg, bool doRestart, AudioSource audioSource)
     {
+        if(!hasAudioPlayed)
+        {
+            audioSource.Play();
+            hasAudioPlayed = true;
+
+        }
+
         float startTime = Time.time;
         while(Time.time - startTime < duration)
         {
