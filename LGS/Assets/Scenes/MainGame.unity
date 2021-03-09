@@ -570,6 +570,12 @@ MonoBehaviour:
   - {fileID: 607643248}
   - {fileID: 1592370497}
   - {fileID: 2007249522}
+--- !u!95 &344236573 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5652081375369917565, guid: ef028a1a954bff84597f76f1af4086e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1183932844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &387856001 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5652081375362615227, guid: ef028a1a954bff84597f76f1af4086e5,
@@ -621,6 +627,12 @@ MonoBehaviour:
   - {fileID: 656414462}
   - {fileID: 203269216}
   - {fileID: 1943537513}
+--- !u!95 &387856008 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5652081375369917565, guid: ef028a1a954bff84597f76f1af4086e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 673835607}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &390074540
 GameObject:
   m_ObjectHideFlags: 0
@@ -799,6 +811,12 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &399237871 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5652081375369917565, guid: ef028a1a954bff84597f76f1af4086e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1217695529}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &430116955
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,7 +834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &430116956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -859,7 +877,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430116955}
-  m_LocalRotation: {x: 0.39567494, y: 0.048193227, z: -0.020266274, w: 0.91690135}
+  m_LocalRotation: {x: 0.3184328, y: 0.036097582, z: -0.018328907, w: 0.9470806}
   m_LocalPosition: {x: 0.95, y: 0.9, z: 9.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1060,7 +1078,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 100
-  field of view: 90
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1085,8 +1103,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508944495}
-  m_LocalRotation: {x: 0.000030137242, y: 0.6054588, z: 0.0022576826, w: 0.79952717}
-  m_LocalPosition: {x: 0.95, y: 0.9, z: 9.9}
+  m_LocalRotation: {x: 0.48121825, y: -0, z: -0, w: 0.8766008}
+  m_LocalPosition: {x: -9.64, y: 5.0165267, z: -5.289861}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 237429310}
@@ -1246,7 +1264,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511049602}
-  m_LocalRotation: {x: 0.109416336, y: -0.9475329, z: 0.053078264, w: -0.29562172}
+  m_LocalRotation: {x: 0.0072925244, y: -0.1179498, z: -0.00297196, w: 0.9929884}
   m_LocalPosition: {x: 7.35, y: 0.9, z: 0.01999998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2289,6 +2307,12 @@ MonoBehaviour:
   wayPoints:
   - {fileID: 523917807}
   - {fileID: 996719663}
+--- !u!95 &821046667 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5652081375369917565, guid: ef028a1a954bff84597f76f1af4086e5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1175688087}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &933617978
 GameObject:
   m_ObjectHideFlags: 0
@@ -2305,7 +2329,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &933617979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4387,10 +4411,16 @@ PlayableDirector:
     value: {fileID: 430116955}
   - key: {fileID: 5131611472724158851, guid: 18a654125780de941b52c2930c4260eb, type: 2}
     value: {fileID: 1035045162}
-  - key: {fileID: 6124505238183894709, guid: 18a654125780de941b52c2930c4260eb, type: 2}
-    value: {fileID: 2278064990192955252}
   - key: {fileID: -7270980700836834283, guid: 18a654125780de941b52c2930c4260eb, type: 2}
     value: {fileID: 2278064990192955252}
+  - key: {fileID: 4192538147948874208, guid: 18a654125780de941b52c2930c4260eb, type: 2}
+    value: {fileID: 387856008}
+  - key: {fileID: 227136987793259537, guid: 18a654125780de941b52c2930c4260eb, type: 2}
+    value: {fileID: 399237871}
+  - key: {fileID: -2004704969745162751, guid: 18a654125780de941b52c2930c4260eb, type: 2}
+    value: {fileID: 821046667}
+  - key: {fileID: -8297927678187263699, guid: 18a654125780de941b52c2930c4260eb, type: 2}
+    value: {fileID: 344236573}
   m_ExposedReferences:
     m_References:
     - 31fd5d56330ea624aa091b0487f00219: {fileID: 1035045163}
@@ -10333,6 +10363,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: JohnLemon
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619249149088249465, guid: 5b4a520beb4dc134fb645efe42f52688,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4175164535084247285, guid: 5b4a520beb4dc134fb645efe42f52688,
         type: 3}
