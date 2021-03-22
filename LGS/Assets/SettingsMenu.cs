@@ -27,8 +27,8 @@ public class SettingsMenu : MonoBehaviour
             string optionLabel = availableResolutions[i].width + " x " + availableResolutions[i].height;
             resolutionOptions.Add(optionLabel);
 
-            if(availableResolutions[i].width == Screen.width &&
-                availableResolutions[i].height == Screen.height)
+            if (availableResolutions[i].width == Screen.currentResolution.width &&
+                availableResolutions[i].height == Screen.currentResolution.height)
             {
                 currentResolutionIndex = i;
             }
@@ -46,9 +46,19 @@ public class SettingsMenu : MonoBehaviour
         LoadResolutionDropdown();
     }
 
-    public void SetVolume(float volume)
+    public void SetGeneralVolume(float volume)
     {
-        audioMixer.SetFloat("volume", volume);
+        audioMixer.SetFloat("Master", volume);
+    }
+
+    public void SetAmbientVolume(float volume)
+    {
+        audioMixer.SetFloat("Ambient", volume);
+    }
+
+    public void SetEffectsVolume(float volume)
+    {
+        audioMixer.SetFloat("Effects", volume);
     }
 
     public void SetResolution(int resolutionIndex)
