@@ -1,0 +1,4 @@
+- La animación de abrir la puerta de john lemon:
+	- Activar manivela cuando toque con un script, activando un valor cuando toque etc etc.
+
+	- Mirar la opción de que sea mediante rigid bodies y nos ahorramos hacer animación de manivela, puerta...
