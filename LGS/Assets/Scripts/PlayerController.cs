@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
         /*
          * Hay que añadir flechas arriba y abajo.
          */
