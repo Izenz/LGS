@@ -6,6 +6,7 @@ public class DoorClose : MonoBehaviour
 {
     public Transform player;
     public GameObject door;
+    public GameObject doorOpen;
     private Animator animator_pivotDoor;
     private Animator animator_player;
     
@@ -21,7 +22,8 @@ public class DoorClose : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.name);
-        if (other.transform == player)
+        //Hay que comprobar que la puerta está abierta... si no no cierres... que me dejas encerrao
+        if (other.transform == player && doorOpen.GetComponent<DoorOpen>().abierta)
         {
             animator_pivotDoor.SetTrigger("cerrarPuerta");
         }

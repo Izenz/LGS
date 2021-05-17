@@ -21,7 +21,14 @@ public class PlayerController : MonoBehaviour
     private CinemachineFramingTransposer transposer;
     private IEnumerator coroutine;
 
+    [SerializeField]
+    private bool _canPickUp;
     public CinemachineVirtualCamera vc;
+
+    [SerializeField]
+    private List<Item> _inventory;
+    [SerializeField]
+    private Item itemObjectToPickUp;
 
     private Quaternion rotation = Quaternion.identity;
     // Start is called before the first frame update
@@ -33,6 +40,40 @@ public class PlayerController : MonoBehaviour
 
         transposer = vc.GetCinemachineComponent<CinemachineFramingTransposer>();
     }
+
+    public bool CanPickUp
+    {
+        set { _canPickUp = value; }
+    }
+
+    public Item ItemObjectToPickUp
+    {
+        set { itemObjectToPickUp = value; }
+    }
+
+    public void AddInventory(Item value)
+    {
+        _inventory.Add(value);
+    }
+
+
+
+    public bool CompruebaInventory(Item value)
+    {
+        bool ok = false;
+        foreach (Item item in _inventory)
+        {
+            if (item.id == value.id)
+            {
+                ok = true;
+                break;
+            }
+        }
+
+        return ok;
+    }
+
+
 
     private void Update()
     {
@@ -46,6 +87,17 @@ public class PlayerController : MonoBehaviour
             coroutine = CameraY(transposer.m_ScreenY, 0.5f, 0.3f);
             StartCoroutine(coroutine);
             stop = false;
+        }
+
+        if (_canPickUp && Input.GetKeyUp(KeyCode.F))
+        {
+            Debug.Log("Recojo objeto");
+            AddInventory(itemObjectToPickUp);
+            CanPickUp = false;
+            GameObject item = GameObject.Find(itemObjectToPickUp.name).gameObject;
+            item.GetComponent<PickUpItem>().panelTexto.SetActive(false);
+            item.SetActive(false);
+            itemObjectToPickUp = null;
         }
     }
 

@@ -5,9 +5,10 @@ using UnityEngine;
 public class DoorOpen : MonoBehaviour
 {
     public Transform player;
-    public GameObject door;
+    public GameObject door, item;
     private Animator animator_pivotDoor;
     private Animator animator_player;
+    public bool abierta;
 
     bool isPlayerInRange;
     private void Start()
@@ -38,8 +39,17 @@ public class DoorOpen : MonoBehaviour
         {
             if ((Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.F)) && !animator_pivotDoor.GetBool("abrirPuerta"))
             {
-                animator_pivotDoor.SetTrigger("abrirPuerta");
-                animator_player.SetTrigger("OpenDoor");
+                if (player.GetComponent<PlayerController>().CompruebaInventory(item.GetComponent<Item>()))
+                {
+                    abierta = true;
+                    animator_pivotDoor.SetTrigger("abrirPuerta");
+                    animator_player.SetTrigger("OpenDoor");
+                }
+                else 
+                {
+                    Debug.Log("No tienes la llave, pppppesao!!");
+                }
+                
             }
         }
     }
