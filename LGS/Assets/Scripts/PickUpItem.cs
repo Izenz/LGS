@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PickUpItem : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class PickUpItem : MonoBehaviour
     {
         if (other.transform == player)
         {
+            panelTexto.GetComponent<TMP_Text>().text = TextModels.pickUpObject;
             panelTexto.SetActive(true);
             other.gameObject.GetComponent<PlayerController>().CanPickUp = true;
             other.gameObject.GetComponent<PlayerController>().ItemObjectToPickUp = this.transform.GetComponent<Item>();

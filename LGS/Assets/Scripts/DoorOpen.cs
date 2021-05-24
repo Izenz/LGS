@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DoorOpen : MonoBehaviour
 {
     public Transform player;
-    public GameObject door, item;
+    public GameObject door, item, panelTexto;
     private Animator animator_pivotDoor;
     private Animator animator_player;
     public bool abierta;
@@ -23,6 +24,13 @@ public class DoorOpen : MonoBehaviour
         if (other.transform == player)
         {
             isPlayerInRange = true;
+            Debug.Log(TextModels.infoDoor);
+            if (!abierta)
+            {
+                panelTexto.GetComponent<TMP_Text>().text = TextModels.infoDoor;
+                panelTexto.SetActive(true);
+            }
+            
         }
     }
     private void OnTriggerExit(Collider other)
@@ -30,6 +38,7 @@ public class DoorOpen : MonoBehaviour
         if (other.transform == player)
         {
             isPlayerInRange = false;
+            panelTexto.SetActive(false);
         }
     }
 
@@ -48,6 +57,7 @@ public class DoorOpen : MonoBehaviour
                 else 
                 {
                     Debug.Log("No tienes la llave, pppppesao!!");
+                    panelTexto.GetComponent<TMP_Text>().text = TextModels.noCanOpenDoorKey;
                 }
                 
             }
