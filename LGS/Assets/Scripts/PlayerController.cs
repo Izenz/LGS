@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Item itemObjectToPickUp;
 
+    public GameObject panelLlave;
+
     private Quaternion rotation = Quaternion.identity;
     // Start is called before the first frame update
     void Start()
@@ -54,6 +57,12 @@ public class PlayerController : MonoBehaviour
     public void AddInventory(Item value)
     {
         _inventory.Add(value);
+        int count = 0;
+        foreach (Item item in _inventory)
+        {
+            ++count;
+        }
+        panelLlave.GetComponent<TMP_Text>().text = "x " + count;
     }
 
 
@@ -98,6 +107,7 @@ public class PlayerController : MonoBehaviour
             item.GetComponent<PickUpItem>().panelTexto.SetActive(false);
             item.SetActive(false);
             itemObjectToPickUp = null;
+
         }
     }
 
